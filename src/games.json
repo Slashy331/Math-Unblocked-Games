@@ -3,8 +3,16 @@
     "id": "analysis-module-04",
     "title": "Module 04: Momentum Conservation",
     "description": "Diagnostic evaluation of non-inertial reference systems and impulse-momentum transfer in variable-velocity environments.",
-    "url": "https://3kh0-assets.silver-een.xyz/cluster-rush/",
+    "url": "https://3kh0-assets.silver-een.xyz/cluster-rush/index.html",
     "thumbnail": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=400&auto=format&fit=crop",
     "category": "Theoretical Physics"
+  },
+  {
+    "id": "analysis-module-05",
+    "title": "Module 05: Fluid Dynamics Simulation",
+    "description": "Particle-based simulation of turbulent flows in constrained geometries, focusing on Reynolds number transitions.",
+    "url": "https://3kh0.github.io/3kh0-assets/slope/index.html",
+    "thumbnail": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=400&auto=format&fit=crop",
+    "category": "Fluid Mechanics"
   }
 ]
