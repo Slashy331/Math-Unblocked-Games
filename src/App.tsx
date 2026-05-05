@@ -40,7 +40,7 @@ export default function App() {
               <Calculator className="w-5 h-5 text-blue-600" />
             </div>
             <h1 className="font-display text-xl tracking-tight text-slate-900">
-              Math<span className="text-blue-600 font-bold">Flow</span> Hub
+              KRL<span className="text-blue-600 font-bold">Research</span> Lab
             </h1>
           </div>
 
@@ -288,7 +288,7 @@ export default function App() {
                             </p>
                           </div>
                           <div className="mt-auto px-2 pt-4 border-t border-slate-100 flex justify-between items-center">
-                            <span className="text-[10px] font-bold text-slate-400">MATHFLOW-VERIFIED</span>
+                            <span className="text-[10px] font-bold text-slate-400">LAB-REPORTS-VERIFIED</span>
                             <div className="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-blue-600 transition-colors">
                               <BookOpen className="w-3 h-3 text-slate-400 group-hover:text-white" />
                             </div>
@@ -315,10 +315,10 @@ export default function App() {
       <footer className="bg-white border-t border-slate-200 py-12 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
           <div className="space-y-4">
-             <div className="flex items-center gap-2">
-              <Calculator className="w-5 h-5 text-blue-600" />
-              <span className="font-display font-bold text-slate-900">MATHFLOW<span className="text-blue-600">ACADIA</span></span>
-             </div>
+              <div className="flex items-center gap-2">
+               <Calculator className="w-5 h-5 text-blue-600" />
+               <span className="font-display font-bold text-slate-900">KINEMATIC<span className="text-blue-600">LABS</span></span>
+              </div>
              <p className="text-xs text-slate-500 leading-relaxed max-w-xs">
                Empowering students worldwide with accessible, high-performance visualization tools for higher mathematical concepts.
              </p>
@@ -347,7 +347,7 @@ export default function App() {
               <span className="text-[10px] font-bold text-slate-600 uppercase">Gateway Secure: v.8.1.0</span>
             </div>
             <p className="text-[10px] text-slate-400 font-medium">
-              © 2026 MATHFLOW LEARNING HUB. ALL RIGHTS RESERVED.
+              © 2026 KINEMATIC RESEARCH LABORATORY. ALL RIGHTS RESERVED.
             </p>
           </div>
         </div>

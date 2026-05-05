@@ -1,10 +1,10 @@
 [
   {
-    "id": "cluster-rush-direct",
-    "title": "Module Cluster Rush: Dynamic Momentum",
-    "description": "Analyze non-inertial reference frames and impulse-momentum theorems through rhythmic spatial navigation.",
-    "url": "https://clusterrush.io/game/cluster-rush/",
-    "thumbnail": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=400&auto=format&fit=crop",
-    "category": "Dynamics"
+    "id": "analysis-module-04",
+    "title": "Module 04: Momentum Conservation",
+    "description": "Diagnostic evaluation of non-inertial reference systems and impulse-momentum transfer in variable-velocity environments.",
+    "url": "https://3kh0-assets.silver-een.xyz/cluster-rush/",
+    "thumbnail": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=400&auto=format&fit=crop",
+    "category": "Theoretical Physics"
   }
 ]
