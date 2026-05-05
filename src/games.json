@@ -1,26 +1,26 @@
 [
   {
     "id": "2048",
-    "title": "2048",
-    "description": "Join the numbers and get to the 2048 tile!",
+    "title": "Module 2048: Exponential Logic",
+    "description": "Examine the properties of base-2 summation and sequence optimization in a constrained 4x4 grid.",
     "url": "https://play2048.co/",
     "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/2048_logo.svg/1200px-2048_logo.svg.png",
-    "category": "Puzzle"
+    "category": "Number Theory"
   },
   {
     "id": "hextris",
-    "title": "Hextris",
-    "description": "Fast-paced puzzle game inspired by Tetris.",
+    "title": "Hextris: Hexagonal Tessellation",
+    "description": "Analyze rotational symmetry and rhythmic geometry through rapid block matching and spatial alignment.",
     "url": "https://hextris.io/",
     "thumbnail": "https://hextris.io/images/logo.png",
-    "category": "Arcade"
+    "category": "Geometry"
   },
   {
     "id": "pacman",
-    "title": "Google Pacman",
-    "description": "The classic arcade game right in your browser.",
+    "title": "Logic Lab: Pathfinding Algorithms",
+    "description": "Observe heuristic behaviors and discrete movement patterns in a closed maze environment.",
     "url": "https://www.google.com/logos/2010/pacman10-i.html",
     "thumbnail": "https://www.google.com/logos/2010/pacman10-hp.png",
-    "category": "Classic"
+    "category": "Discrete Math"
   }
 ]

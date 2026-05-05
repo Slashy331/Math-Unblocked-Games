@@ -47,7 +47,7 @@ export default function App() {
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
             <input
               type="text"
-              placeholder="Search math models..."
+              placeholder="Search learning modules..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full bg-slate-100 border border-transparent rounded-lg py-2 pl-10 pr-4 text-sm focus:outline-none focus:bg-white focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all text-slate-800 placeholder:text-slate-400"
@@ -56,7 +56,7 @@ export default function App() {
 
           <div className="flex items-center gap-6">
             <button className="text-sm font-semibold text-slate-600 hover:text-blue-600 transition-colors hidden md:inline">Curriculum</button>
-            <button className="text-sm font-semibold text-slate-600 hover:text-blue-600 transition-colors hidden md:inline">Calculators</button>
+            <button className="text-sm font-semibold text-slate-600 hover:text-blue-600 transition-colors hidden md:inline">Theorems</button>
             <div className="w-8 h-8 bg-slate-200 rounded-full flex items-center justify-center text-slate-500 text-xs font-bold ring-2 ring-white">JS</div>
           </div>
         </div>
