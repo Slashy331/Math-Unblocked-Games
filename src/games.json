@@ -14,5 +14,13 @@
     "url": "https://3kh0.github.io/3kh0-assets/slope/index.html",
     "thumbnail": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=400&auto=format&fit=crop",
     "category": "Fluid Mechanics"
+  },
+  {
+    "id": "analysis-module-06",
+    "title": "Module 06: Positional Vector Analysis",
+    "description": "Real-time tracking of coordinate geometry and collision detection in multi-platform environments.",
+    "url": "https://3kh0.github.io/3kh0-assets/vex-7/index.html",
+    "thumbnail": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=400&auto=format&fit=crop",
+    "category": "Vector Calculus"
   }
 ]
