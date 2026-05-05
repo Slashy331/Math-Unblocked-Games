@@ -1,0 +1,26 @@
+[
+  {
+    "id": "2048",
+    "title": "2048",
+    "description": "Join the numbers and get to the 2048 tile!",
+    "url": "https://play2048.co/",
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/2048_logo.svg/1200px-2048_logo.svg.png",
+    "category": "Puzzle"
+  },
+  {
+    "id": "hextris",
+    "title": "Hextris",
+    "description": "Fast-paced puzzle game inspired by Tetris.",
+    "url": "https://hextris.io/",
+    "thumbnail": "https://hextris.io/images/logo.png",
+    "category": "Arcade"
+  },
+  {
+    "id": "pacman",
+    "title": "Google Pacman",
+    "description": "The classic arcade game right in your browser.",
+    "url": "https://www.google.com/logos/2010/pacman10-i.html",
+    "thumbnail": "https://www.google.com/logos/2010/pacman10-hp.png",
+    "category": "Classic"
+  }
+]
