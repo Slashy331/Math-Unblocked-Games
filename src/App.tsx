@@ -20,6 +20,7 @@ interface Game {
 export default function App() {
   const [selectedGame, setSelectedGame] = useState<Game | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
+  const [isUnlocked, setIsUnlocked] = useState(false);
 
   const filteredGames = gamesData.filter((game) =>
     game.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -98,7 +99,8 @@ export default function App() {
               <iframe
                 src={selectedGame.url}
                 className="absolute inset-0 w-full h-full border-0"
-                allow="fullscreen"
+                allow="autoplay; fullscreen; camera; focus-without-user-activation *; monetization; gamepad; keyboard-map *; xr-spatial-tracking; clipboard-write; web-share; accelerometer; magnetometer; gyroscope; display-capture"
+                sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-scripts allow-same-origin allow-downloads"
                 title={selectedGame.title}
               />
               {/* Stealth Overlay for focus */}
@@ -188,58 +190,117 @@ export default function App() {
               </div>
             </div>
 
-            {/* Learning Grid */}
+            {/* Main Learning Portal Content */}
             <section>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <AnimatePresence mode='popLayout'>
-                  {filteredGames.map((game, index) => (
-                    <motion.div
-                      key={game.id}
-                      layout
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.05 }}
-                      onClick={() => setSelectedGame(game)}
-                      className="group cursor-pointer math-card-border rounded-xl p-3 flex flex-col"
-                      id={`module-${game.id}`}
-                    >
-                      <div className="aspect-[4/3] rounded-lg overflow-hidden relative mb-4 bg-slate-200">
-                        <img 
-                          src={game.thumbnail} 
-                          alt={game.title}
-                          referrerPolicy="no-referrer"
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter grayscale group-hover:grayscale-0 opacity-80 group-hover:opacity-100"
-                        />
-                        <div className="absolute top-2 left-2 px-2 py-1 bg-white/90 backdrop-blur rounded shadow-sm font-bold text-[9px] text-blue-600 uppercase tracking-tighter">
-                          Unit {index + 1}
+              {!isUnlocked ? (
+                <div className="space-y-12">
+                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      <div className="bg-white border border-slate-200 rounded-xl p-8 shadow-sm space-y-4">
+                        <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center text-blue-600">
+                          <BookOpen className="w-6 h-6" />
                         </div>
-                      </div>
-                      <div className="px-2 pb-2">
-                        <h4 className="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
-                          {game.title}
-                        </h4>
-                        <div className="flex items-center gap-2 mt-1">
-                          <span className="w-1 h-1 bg-slate-300 rounded-full"></span>
-                          <span className="text-[10px] text-slate-400 font-bold uppercase tracking-widest leading-none">
-                            Theory: {game.category}
-                          </span>
-                        </div>
-                        <p className="text-slate-500 text-xs mt-3 line-clamp-2 italic leading-relaxed">
-                          "{game.description}"
+                        <h3 className="text-xl font-bold text-slate-900">Step-by-Step Algebra Help</h3>
+                        <p className="text-slate-500 text-sm leading-relaxed">
+                          Access comprehensive breakdowns of algebraic equations, from linear functions to quadratic resolutions. Our guide follows the standard academic curriculum.
                         </p>
+                        <button 
+                          onClick={() => setIsUnlocked(true)}
+                          className="w-full py-3 bg-blue-600 text-white font-bold rounded-xl shadow-lg hover:bg-blue-700 transition-colors"
+                        >
+                          OPEN ALGEBRA HELP
+                        </button>
                       </div>
-                      <div className="mt-auto px-2 pt-4 border-t border-slate-100 flex justify-between items-center">
-                        <span className="text-[10px] font-bold text-slate-400">MATHFLOW-VERIFIED</span>
-                        <div className="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-blue-600 transition-colors">
-                          <BookOpen className="w-3 h-3 text-slate-400 group-hover:text-white" />
+
+                      <div className="bg-white border border-slate-200 rounded-xl p-8 shadow-sm space-y-4 opacity-70">
+                        <div className="w-12 h-12 bg-emerald-50 rounded-lg flex items-center justify-center text-emerald-600">
+                          <LayoutGrid className="w-6 h-6" />
                         </div>
+                        <h3 className="text-xl font-bold text-slate-900">Geometric Theory</h3>
+                        <p className="text-slate-500 text-sm leading-relaxed">
+                          Review principles of Euclidean geometry, including theorem proofs and spatial coordinate systems.
+                        </p>
+                        <div className="text-xs font-bold text-emerald-600 uppercase tracking-widest pt-2">Coming Soon</div>
                       </div>
-                    </motion.div>
-                  ))}
-                </AnimatePresence>
-              </div>
+                   </div>
+
+                   <div className="bg-blue-50 border border-blue-100 rounded-2xl p-8 flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
+                      <div className="flex-1 space-y-2">
+                        <h4 className="text-lg font-bold text-blue-900">Need immediate problem resolution?</h4>
+                        <p className="text-blue-700/70 text-sm tracking-tight">Our peer-reviewed database contains over 1,500 resolved logic sets for advanced mathematical research.</p>
+                      </div>
+                      <div className="flex items-center gap-4">
+                         <span className="text-xs font-bold text-blue-600 uppercase underline decoration-2 underline-offset-4 cursor-pointer hover:text-blue-800 transition-colors">Request a Tutor</span>
+                         <div className="h-6 w-px bg-blue-200"></div>
+                         <span className="text-xs font-bold text-blue-600 uppercase underline decoration-2 underline-offset-4 cursor-pointer hover:text-blue-800 transition-colors">View Samples</span>
+                      </div>
+                   </div>
+                </div>
+              ) : (
+                <div className="space-y-8">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
+                      <div className="w-1.5 h-4 bg-blue-600 rounded-full"></div>
+                      Unlocked Learning Modules
+                    </h3>
+                    <button 
+                      onClick={() => setIsUnlocked(false)}
+                      className="text-xs font-bold text-slate-400 hover:text-red-500 transition-colors"
+                    >
+                      HIDE MODULES
+                    </button>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <AnimatePresence mode='popLayout'>
+                      {filteredGames.map((game, index) => (
+                        <motion.div
+                          key={game.id}
+                          layout
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: index * 0.05 }}
+                          onClick={() => setSelectedGame(game)}
+                          className="group cursor-pointer math-card-border rounded-xl p-3 flex flex-col"
+                          id={`module-${game.id}`}
+                        >
+                          <div className="aspect-[4/3] rounded-lg overflow-hidden relative mb-4 bg-slate-200">
+                            <img 
+                              src={game.thumbnail} 
+                              alt={game.title}
+                              referrerPolicy="no-referrer"
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter grayscale group-hover:grayscale-0 opacity-80 group-hover:opacity-100"
+                            />
+                            <div className="absolute top-2 left-2 px-2 py-1 bg-white/90 backdrop-blur rounded shadow-sm font-bold text-[9px] text-blue-600 uppercase tracking-tighter">
+                              Unit {index + 1}
+                            </div>
+                          </div>
+                          <div className="px-2 pb-2">
+                            <h4 className="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                              {game.title}
+                            </h4>
+                            <div className="flex items-center gap-2 mt-1">
+                              <span className="w-1 h-1 bg-slate-300 rounded-full"></span>
+                              <span className="text-[10px] text-slate-400 font-bold uppercase tracking-widest leading-none">
+                                Theory: {game.category}
+                              </span>
+                            </div>
+                            <p className="text-slate-500 text-xs mt-3 line-clamp-2 italic leading-relaxed">
+                              "{game.description}"
+                            </p>
+                          </div>
+                          <div className="mt-auto px-2 pt-4 border-t border-slate-100 flex justify-between items-center">
+                            <span className="text-[10px] font-bold text-slate-400">MATHFLOW-VERIFIED</span>
+                            <div className="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-blue-600 transition-colors">
+                              <BookOpen className="w-3 h-3 text-slate-400 group-hover:text-white" />
+                            </div>
+                          </div>
+                        </motion.div>
+                      ))}
+                    </AnimatePresence>
+                  </div>
+                </div>
+              )}
               
-              {filteredGames.length === 0 && (
+              {filteredGames.length === 0 && isUnlocked && (
                 <div className="text-center py-20 bg-slate-100 rounded-xl border-2 border-dashed border-slate-200">
                   <Calculator className="w-12 h-12 text-slate-300 mx-auto mb-4" />
                   <p className="text-slate-500 font-medium">No learning models found matching your search parameters.</p>

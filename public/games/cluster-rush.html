@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cluster Rush Clone</title>
+  <style>
+    body { margin: 0; overflow: hidden; background: #87CEEB; font-family: sans-serif; }
+    canvas { display: block; width: 100vw; height: 100vh; }
+    #instructions {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(255,255,255,0.8);
+      padding: 10px;
+      border-radius: 8px;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+<div id="instructions">
+  <strong>Physics Test:</strong> Press SPACE to Jump
+</div>
+<canvas id="game"></canvas>
+
+<script>
+const canvas = document.getElementById("game");
+const ctx = canvas.getContext("2d");
+
+// Responsive canvas
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resize);
+resize();
+
+let player = {
+  x: 100,
+  y: 300,
+  width: 30,
+  height: 30,
+  dy: 0,
+  gravity: 0.6,
+  jumpPower: -12,
+  grounded: false
+};
+
+let trucks = [];
+
+function spawnTruck() {
+  trucks.push({
+    x: canvas.width,
+    y: canvas.height - 100,
+    width: 120,
+    height: 30,
+    speed: 5 + Math.random() * 2
+  });
+}
+
+setInterval(spawnTruck, 1500);
+
+function update() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Background
+  ctx.fillStyle = "#87CEEB";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  
+  // Ground line
+  ctx.strokeStyle = "#555";
+  ctx.beginPath();
+  ctx.moveTo(0, canvas.height - 70);
+  ctx.lineTo(canvas.width, canvas.height - 70);
+  ctx.stroke();
+
+  // Player physics
+  player.dy += player.gravity;
+  player.y += player.dy;
+
+  const floorY = canvas.height - 100;
+
+  if (player.y > floorY) {
+    player.y = floorY;
+    player.dy = 0;
+    player.grounded = true;
+  } else {
+    player.grounded = false;
+  }
+
+  // Draw player
+  ctx.fillStyle = "#ef4444";
+  ctx.shadowBlur = 10;
+  ctx.shadowColor = "rgba(0,0,0,0.2)";
+  ctx.fillRect(player.x, player.y, player.width, player.height);
+  ctx.shadowBlur = 0;
+
+  // Trucks
+  for (let i = trucks.length - 1; i >= 0; i--) {
+    let truck = trucks[i];
+    truck.x -= truck.speed;
+
+    // Draw truck body
+    ctx.fillStyle = "#1e293b";
+    ctx.fillRect(truck.x, truck.y, truck.width, truck.height);
+    
+    // Draw wheels
+    ctx.fillStyle = "#334155";
+    ctx.beginPath();
+    ctx.arc(truck.x + 20, truck.y + truck.height, 8, 0, Math.PI * 2);
+    ctx.arc(truck.x + truck.width - 20, truck.y + truck.height, 8, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Collision
+    if (
+      player.x < truck.x + truck.width &&
+      player.x + player.width > truck.x &&
+      player.y + player.height < truck.y + 15 &&
+      player.y + player.height > truck.y - 5
+    ) {
+      player.y = truck.y - player.height;
+      player.dy = 0;
+      player.grounded = true;
+    }
+
+    // Remove offscreen
+    if (truck.x + truck.width < 0) {
+      trucks.splice(i, 1);
+    }
+  }
+
+  requestAnimationFrame(update);
+}
+
+document.addEventListener("keydown", (e) => {
+  if (e.code === "Space" && player.grounded) {
+    player.dy = player.jumpPower;
+  }
+});
+
+update();
+</script>
+
+</body>
+</html>
